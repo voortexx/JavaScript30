@@ -62,6 +62,7 @@
       background: black;
       position: absolute;
       top: 50%;
+      transform-origin: 100%;
     }
 
   </style>
@@ -74,8 +75,15 @@
 
     setDate = () => {
       const now = new Date()
+
+      const seconds = now.getSeconds();
+      const secondsToDegress = seconds/60 * 360 + 90
+      secondHand.style.transform = `rotate(${secondsToDegress}deg)`;
+
+
     }
 
+    setInterval(setDate,1000)
   </script>
 </body>
 </html>
